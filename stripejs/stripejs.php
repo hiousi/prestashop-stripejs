@@ -510,10 +510,7 @@ class StripeJs extends PaymentModule
 		{
 			if (!isset($result_json->fee))
 				$result_json->fee = 0;
-
-
-
-			file_put_contents("/var/www/prestashop/public_html/modules/stripejs/error.log",$contents);
+			
 			$order_status = (int)Configuration::get('STRIPE_PAYMENT_ORDER_STATUS');
 			$message = $this->l('Stripe Transaction Details:')."\n\n".
 			$this->l('Stripe Transaction ID:').' '.$result_json->id."\n".
